@@ -1,0 +1,29 @@
+{
+  "name": "fosse-ardeatine",
+  "version": "1.0.0",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "description": "",
+  "scripts": {
+    "start": "parcel src/*.html --open",
+    "clean": "rm -rf dist/*",
+    "build:parcel": "parcel build src/*.html --no-content-hash --no-source-maps --public-url ./",
+    "build": "npm run clean && npm run build:parcel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcomit/fosse-ardeatine.git"
+  },
+  "keywords": [],
+  "author": "marcomit",
+  "license": "MIT",
+  "homepage": "https://fosse-ardeatine.vercel.app",
+  "devDependencies": {
+    "events": "^3.3.0",
+    "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "gsap": "^3.10.4",
+    "imagesloaded": "^5.0.0",
+    "splitting": "^1.0.6"
+  }
+}
