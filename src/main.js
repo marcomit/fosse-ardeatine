@@ -1,3 +1,5 @@
+import { Cursor } from "./js/cursor";
+
 const options = {
   el: document.querySelector("#js-scroll"),
   smooth: !0,
@@ -14,7 +16,18 @@ const options = {
 
 const scroll = new LocomotiveScroll(options);
 const menu = document.getElementById("menu");
-const cursor = document.getElementById("cursor");
+const cursor = new Cursor(document.querySelector(".cursor"));
+
+document.querySelectorAll('[data-title]').forEach(link => {
+  link.addEventListener("mouseenter", () => {
+    cursor.enter();
+    cursor.DOM.text.innerHTML = link.getAttribute('data-title')
+  });
+  link.addEventListener("mouseleave", () => {
+    cursor.leave()
+    cursor.DOM.text.innerHTML = ""
+  });
+})
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".item").forEach((item) => {
@@ -36,16 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
   "true" ==
     document.querySelector("#js-scroll").getAttribute("data-horizontal") &&
     ((t.direction = "horizontal"),
-    (t.gestureDirection = "both"),
-    (t.tablet = {
-      smooth: !0,
-      direction: "horizontal",
-      horizontalGesture: !0,
-    }),
-    (t.smartphone = {
-      smooth: !1,
-    }),
-    (t.reloadOnContextChange = !0)),
+      (t.gestureDirection = "both"),
+      (t.tablet = {
+        smooth: !0,
+        direction: "horizontal",
+        horizontalGesture: !0,
+      }),
+      (t.smartphone = {
+        smooth: !1,
+      }),
+      (t.reloadOnContextChange = !0)),
     setTimeout(function () {
       (i = []), (s = []);
       scroll.on("scroll", function (ev) {
@@ -58,24 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1e3);
 });
 
-//document.addEventListener("mousemove", (e) => {
-//  cursor.style.top = `${e.clientY - cursor.offsetHeight / 2}px`;
-//  cursor.style.left = `${e.clientX - cursor.offsetWidth / 2}px`;
-//});
-
 menu.addEventListener("click", (e) => {
   menu.classList.toggle("open");
 });
-
-//document.querySelectorAll(".cursor-visible").forEach((el) => {
-//  el.addEventListener("mouseover", (e) => {
-//    if (!cursor.classList.contains("visible")) cursor.classList.add("visible");
-//  });
-//  el.addEventListener("mouseout", () => {
-//    if (cursor.classList.contains("visible"))
-//      cursor.classList.remove("visible");
-//  });
-//});
 
 function getRandomCharacters() {
   const chars =

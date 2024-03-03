@@ -12,8 +12,6 @@
 </head>
 
 <body>
-  <div id="cursor"></div>
-
   <div class="o-scroll cursor-visible" id="js-scroll" data-scroll-container>
     <div class="header">
       <div class="c-header_heading o-container">
@@ -245,7 +243,10 @@
                 <h2 class="text-center">
                   <a href="martiri.html" style="text-decoration: underline !important">Martiri viterbesi</a>
                 </h2>
-                <img src="img/viterbo.svg" alt="mappa del lazio" width="700" />
+                <div id="mappa" data-scroll>
+                  <img src="img/viterbo.svg" alt="mappa del lazio" width="100%" height="100%" />
+                  <div class="dot" style="--x:10%;--y:10%" data-title="martire1"></div>
+                </div>
               </div>
             </div>
             <div class="o-layout_item u-2/5@from-medium">
@@ -394,8 +395,7 @@
             <div class="c-speed-block" data-scroll data-scroll-speed="2">
               <div class="o-image_wrapper" data-scroll data-scroll-call="dynamicBackground" data-scroll-repeat>
                 <div class="o-image" data-scroll>
-                  <img class="c-speed-block_image" src="img/commemorazione/foto1.png"
-                    alt="Locomotive image from unsplash" />
+                  <img class="c-speed-block_image" src="img/libro/foto1.png" alt="Locomotive image from unsplash" />
                 </div>
               </div>
               <p class="c-speed-block_title" data-scroll>Foto</p>
@@ -410,8 +410,7 @@
             <div class="c-speed-block" data-scroll data-scroll-speed="4">
               <div class="o-image_wrapper" data-scroll data-scroll-call="dynamicBackground" data-scroll-repeat>
                 <div class="o-image" data-scroll data-scroll-speed="-1.5">
-                  <img class="c-speed-block_image" src="img/commemorazione/foto2.png"
-                    alt="Locomotive image from unsplash" />
+                  <img class="c-speed-block_image" src="img/libro/foto2.png" alt="Locomotive image from unsplash" />
                 </div>
               </div>
               <p class="c-speed-block_title" data-scroll>Foto 2</p>
@@ -429,8 +428,7 @@
                 <div class="c-speed-block -margin" data-scroll data-scroll-speed="6">
                   <div class="o-image_wrapper" data-scroll data-scroll-call="dynamicBackground" data-scroll-repeat>
                     <div class="o-image" data-scroll data-scroll-speed="-2">
-                      <img class="c-speed-block_image" src="img/commemorazione/foto3.png"
-                        alt="commemorazione a 1 anno" />
+                      <img class="c-speed-block_image" src="img/libro/foto3.png" alt="commemorazione a 1 anno" />
                     </div>
                   </div>
                   <p class="c-speed-block_title" data-scroll>Foto 3</p>
@@ -557,7 +555,7 @@
             <div class="c-fixed_wrapper" data-scroll data-scroll-call="dynamicBackground" data-scroll-repeat>
               <div class="c-fixed_target" id="fixed-target"></div>
               <div class="c-fixed" data-scroll data-scroll-sticky data-scroll-target="#fixed-target"
-                style="background-image: url('img/foto03.jpg')"></div>
+                style="background-image: url('img/varie/foto03.jpg')"></div>
             </div>
           </div>
         </div>
@@ -568,7 +566,7 @@
             <div class="c-fixed_wrapper" data-scroll data-scroll-repeat>
               <div class="c-fixed_target" id="fixed-target1"></div>
               <div class="c-fixed" data-scroll data-scroll-sticky data-scroll-target="#fixed-target1"
-                style="background-image: url('img/foto03.jpg')"></div>
+                style="background-image: url('img/varie/foto03.jpg')"></div>
             </div>
           </div>
           <div class="o-layout_item u-2/5@from-medium">
@@ -806,22 +804,31 @@
             </div>
           </div>
         </div>
+
         <h2 class="cursive item" style="margin: 50px 0">
           <span class="word">Editing Video</span>
         </h2>
         <p>Federico De Angelis</p>
         <p>Ezio Morbidelli</p>
         <p>Francesco Navarra</p>
+
         <h2 class="cursive item" style="margin: 50px 0">
           <span class="word">Musiche</span>
         </h2>
         <p>Lorenzo De Mitri</p>
         <p>Giacomo Minnetti</p>
+
         <h2 class="cursive item" style="margin: 50px 0">
           <span class="word">Sito web</span>
         </h2>
         <p>Marco Menegazzi</p>
         <p>Gabriele Pelloni</p>
+
+        <h2 class="cursive item" style="margin: 50px 0">
+          <span class="word">Disegni</span>
+        </h2>
+        <p>Rikardo Nuri</p>
+
         <h2 class="cursive item" style="margin: 50px 0">
           <span class="word">Direzione</span>
         </h2>
@@ -829,9 +836,14 @@
       </div>
     </section>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-  <!--<script src="lib.js"></script>-->
-  <script src="main.js"></script>
+  <div class="cursor">
+    <svg class="cursor__svg" width="80" height="80" viewBox="0 0 80 80">
+      <circle vector-effect="non-scaling-stroke" class="cursor__svg-circle" cx="40" cy="40" r="20" />
+    </svg>
+    <span class="cursor__text"></span>
+  </div>
+  <script src="lib.js"></script>
+  <script src="main.js" type="module"></script>
 </body>
 
 </html>

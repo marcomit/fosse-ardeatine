@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { lerp, getMousePos } from "./utils";
 
-// Track the mouse position
 let mouse = { x: 0, y: 0 };
 window.addEventListener("mousemove", (ev) => (mouse = getMousePos(ev)));
 
@@ -30,12 +29,12 @@ export class Cursor {
         this.renderedStyles.tx.current =
         this.renderedStyles.txText.previous =
         this.renderedStyles.txText.current =
-          mouse.x - this.bounds.width / 2;
+        mouse.x - this.bounds.width / 2;
       this.renderedStyles.ty.previous =
         this.renderedStyles.ty.current =
         this.renderedStyles.tyText.previous =
         this.renderedStyles.tyText.current =
-          mouse.y - this.bounds.height / 2;
+        mouse.y - this.bounds.height / 2;
 
       gsap.to(this.DOM.el, {
         duration: 0.9,
@@ -67,7 +66,6 @@ export class Cursor {
       );
     }
 
-    //this.DOM.el.style.transform = `translateX(${(this.renderedStyles['tx'].previous)}px) translateY(${this.renderedStyles['ty'].previous}px)`;
     this.DOM.svg.style.transform = `translateX(${this.renderedStyles["tx"].previous}px) translateY(${this.renderedStyles["ty"].previous}px)`;
     this.DOM.text.style.transform = `translateX(${this.renderedStyles["txText"].previous}px) translateY(${this.renderedStyles["tyText"].previous}px)`;
     this.DOM.circle.style.transform = `scale(${this.renderedStyles["scale"].previous})`;

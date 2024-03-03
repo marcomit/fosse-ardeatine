@@ -7,13 +7,9 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
 
-// initialize Splitting
 const splitting = Splitting();
 
-// title behind the grid
 const title = document.querySelector(".content__title");
-// Splitting will run on the inner spans
-// get the chars
 const titleChars = [...title.querySelectorAll(".char")];
 
 export class Grid extends EventEmitter {
@@ -30,7 +26,6 @@ export class Grid extends EventEmitter {
     this.showItems();
     this.initEvents();
   }
-  // Initial animation to scale up and fade in the items
   showItems() {
     gsap
       .timeline()
@@ -86,10 +81,8 @@ export class Grid extends EventEmitter {
 
     this.isContentOpen = true;
 
-    // pointer events
     this.DOM.el.classList.add("grid--inactive");
 
-    // stop the rAF on every item
     for (const item of this.gridItems) {
       item.stopTransformAnimation();
     }
@@ -103,7 +96,6 @@ export class Grid extends EventEmitter {
           duration: 2,
           ease: "expo.inOut",
           opacity: 0,
-          //z: '+='+getRandomNumber(1000,5000),
           rotationX: 0,
           rotationY: 0,
           y: "-=" + getRandomNumber(1000, 1600),
@@ -126,7 +118,6 @@ export class Grid extends EventEmitter {
         item.preview.DOM.el.classList.add("preview__item--open");
       }, "start+=0.1")
 
-      // Content/preview animation
       .to(
         item.preview.DOM.titleChars,
         {
@@ -191,12 +182,10 @@ export class Grid extends EventEmitter {
       .timeline({
         onComplete: () => {
           item.preview.DOM.el.classList.remove("preview__item--open");
-          // pointer events
           this.DOM.el.classList.remove("grid--inactive");
         },
       })
       .addLabel("start", 0)
-      // Content/preview animation
       .to(
         item.preview.DOM.titleChars,
         {
@@ -260,12 +249,11 @@ export class Grid extends EventEmitter {
         "start+=0.4"
       )
       .add(() => {
-        // start the rAF on every item
         for (const item of this.gridItems) {
           item.translationVals.y =
             item.rotationVals.y =
             item.rotationVals.x =
-              0;
+            0;
           item.loopTransformAnimation();
         }
       }, "start+=0.3")

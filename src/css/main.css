@@ -1,3 +1,58 @@
+body {
+  margin: 0;
+  --color-text: #000;
+  --color-text-alt: #848484;
+  --color-title: #c4b9b9;
+  --color-bg: #d4c9c9;
+  --color-link: #e3154d;
+  --color-link-hover: #000;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  --cursor-stroke: #e3154d;
+  --cursor-fill: none;
+  --cursor-stroke-width: 1px;
+  --cursor-text: #000;
+  font-family: Neue Montreal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (any-pointer: fine) {
+  .cursor {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .cursor__svg {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .cursor__svg-circle {
+    fill: var(--cursor-fill);
+    stroke: var(--cursor-stroke);
+    stroke-width: var(--cursor-stroke-width);
+  }
+
+  .cursor__text {
+    position: absolute;
+    top: 1.875rem;
+    left: 80px;
+    font-size: 0.857rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    fill: var(--cursor-text);
+  }
+}
+
 .cbd {
   border: 1px solid red;
 }
@@ -91,30 +146,6 @@
 #menu.open .hamburger span:last-child {
   transform: rotate(-225deg) translateY(-50%);
   bottom: 50%;
-}
-
-#cursor {
-  z-index: 9999;
-  opacity: 0;
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  transition: all 0.15s ease-out;
-  pointer-events: none;
-  /*border: 1px solid #000;*/
-  border-radius: 50%;
-}
-
-#cursor.visible {
-  display: block;
-  opacity: 1;
-  cursor: none;
-}
-
-@media screen and (max-width: 1000px) {
-  #cursor {
-    display: none !important;
-  }
 }
 
 .marquee-wrap {
@@ -228,34 +259,25 @@
   transition: all 1s ease-out;
 }
 
-.mappa {
-  position: absolute;
-  width: 40vw;
-  top: 10vh;
-  right: 50px;
-  opacity: 0;
-  transform: translateY(100%) rotateX(-80deg);
+#mappa {
+  position: relative;
 }
 
-.is-ready .mappa {
-  opacity: 1;
-  transform: none;
-  transition-duration: 1s;
-}
-
-.dot {
+#mappa>.dot {
   position: absolute;
   top: var(--y);
   left: var(--x);
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #000;
-  transition: all ease-out;
+  background: transparent;
+  transform: scale(5);
+  transition: all .2s ease-out;
 }
 
-.is-inview>.dot {
-  background: #000;
+#mappa.is-inview>.dot {
+  background: #c4b9b9;
+  transform: scale(1);
 }
 
 .dot::after {
