@@ -73,11 +73,11 @@ body {
   font-size: 2rem;
 }
 
-.space-y-5 > * + * {
+.space-y-5>*+* {
   margin-top: 5rem;
 }
 
-.space-y-10 > * + * {
+.space-y-10>*+* {
   margin-top: 10rem;
 }
 
@@ -96,7 +96,7 @@ body {
   font-weight: 700;
 }
 
-#menu > .hamburger > span {
+#menu>.hamburger>span {
   position: absolute;
   left: 0;
   z-index: 10;
@@ -107,7 +107,7 @@ body {
   transition: 0.5s all cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-#menu > .menu-content {
+#menu>.menu-content {
   position: absolute;
   display: flex;
   align-items: start;
@@ -123,19 +123,19 @@ body {
   transition: 0.5s all cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-#menu > .menu-content > * {
+#menu>.menu-content>* {
   color: #000;
 }
 
-#menu.open > .menu-content {
+#menu.open>.menu-content {
   top: 0;
 }
 
-#menu > .hamburger > span:first-child {
+#menu>.hamburger>span:first-child {
   top: 0;
 }
 
-#menu > .hamburger > span:last-child {
+#menu>.hamburger>span:last-child {
   bottom: 0;
 }
 
@@ -171,22 +171,22 @@ body {
   font-family: Schnyder !important;
 }
 
-.menu-content > .marquee-wrap:hover {
+.menu-content>.marquee-wrap:hover {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   padding: 0;
 }
 
-.menu-content > .marquee-wrap > .marquee-box {
+.menu-content>.marquee-wrap>.marquee-box {
   animation: none;
 }
 
-.menu-content > .marquee-wrap:hover > .marquee-box {
+.menu-content>.marquee-wrap:hover>.marquee-box {
   opacity: 1;
   animation: marquee 1s linear infinite;
 }
 
-.menu-content > :not(.marquee-wrap:hover) > :not(.marquee-box:first-child) {
+.menu-content> :not(.marquee-wrap:hover)> :not(.marquee-box:first-child) {
   opacity: 0;
   animation: none;
 }
@@ -243,13 +243,13 @@ body {
   background: #e3e3e3;
 }
 
-.slide > img {
+.slide>img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.is-inview > .card {
+.is-inview>.card {
   opacity: 1;
   transform: scale(1);
 }
@@ -264,20 +264,20 @@ body {
   position: relative;
 }
 
-#mappa > .dot {
+#mappa>.dot {
   position: absolute;
   top: var(--y);
   left: var(--x);
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: transparent;
   transform: scale(5);
   transition: all 0.2s ease-out;
 }
 
-#mappa.is-inview > .dot {
-  background: #c4b9b9;
+#mappa.is-inview>.dot {
+  background: #aaa;
   transform: scale(1);
 }
 

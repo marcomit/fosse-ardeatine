@@ -1,12 +1,20 @@
 import { Cursor } from "./cursor";
 import { Grid } from "./grid";
-import { calcWinsize, preloadImages } from "./utils";
+import { preloadImages } from "./utils";
 
 const cursor = new Cursor(document.querySelector(".cursor"));
+const grid = new Grid(document.querySelector(".grid"));
+
+document.addEventListener('DOMContentLoaded', () => {
+  const martire = new URLSearchParams(location.search).get('martire')
+  if (!martire) return;
+  if (!Number.isInteger(parseInt(martire))) return
+  console.log(martire)
+  grid.showContent(grid.gridItems[parseInt(martire)])
+})
 
 preloadImages(".grid__item-img").then(() => {
   document.body.classList.remove("loading");
-  const grid = new Grid(document.querySelector(".grid"));
   grid.on(
     "mouseEnterItem",
     (itemTitle) => (cursor.DOM.text.innerHTML = itemTitle)

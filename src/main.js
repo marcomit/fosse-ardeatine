@@ -12,7 +12,7 @@ const options = {
     smooth: !1,
   },
 };
-const audio = document.createElement("audio");
+
 const scroll = new LocomotiveScroll(options);
 const menu = document.getElementById("menu");
 const cursor = new Cursor(document.querySelector(".cursor"));
@@ -28,7 +28,8 @@ document.querySelectorAll("[data-title]").forEach((link) => {
   });
 });
 
-//
+document.querySelectorAll('li, .dot').forEach(item => item.addEventListener('click', () => window.location.replace(`./martiri.html?martire=${item.getAttribute('data-id-martire')}`)))
+
 document.querySelectorAll(".item").forEach((item) => {
   item.addEventListener("mouseenter", shuffleAnimation2);
   if (item.classList.contains("item-leave")) {
