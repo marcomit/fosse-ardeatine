@@ -380,7 +380,7 @@ a {
   background-position: 50% 50%;
 }
 
-.preview__item-content>audio {
+.preview__item-content > audio {
   margin-top: 50px;
 }
 
@@ -441,7 +441,6 @@ a {
 }
 
 @media screen and (min-width: 53em) {
-
   html,
   body,
   main {
@@ -523,7 +522,7 @@ a {
   .preview__item-title {
     justify-self: center;
     padding: 0;
-    color: var(--color-title);
+    color: #b4a9a9;
     mix-blend-mode: difference;
     margin-bottom: 50px;
   }
@@ -547,7 +546,7 @@ a {
     padding: 0 0 0 2rem;
   }
 
-  .previw__item-content>audio {
+  .previw__item-content > audio {
     display: block;
   }
 }
