@@ -18,3 +18,9 @@ preloadImages(".grid__item-img").then(() => {
   link.addEventListener("mouseenter", () => cursor.enter());
   link.addEventListener("mouseleave", () => cursor.leave());
 });
+
+[...document.querySelectorAll(".preview__item")].forEach((previewItem) =>
+  previewItem
+    .querySelector(".preview__item-back")
+    .addEventListener("click", () => previewItem.querySelector("audio").pause())
+);
