@@ -11,39 +11,24 @@
     <link rel="stylesheet" href="css/locomotive.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/fonts.css" />
-    <script>
-      window.si =
-        window.si ||
-        function () {
-          (window.siq = window.siq || []).push(arguments);
-        };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script>
-      window.va =
-        window.va ||
-        function () {
-          (window.vaq = window.vaq || []).push(arguments);
-        };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
   </head>
 
   <body>
     <div class="o-scroll cursor-visible" id="js-scroll" data-scroll-container>
       <div class="header">
-        <div class="c-header_heading o-container">
-          <div class="o-layout">
+        <div class="o-container">
+          <div class="o-layout -middle">
             <div class="o-layout_item u-1/2 item">
               <a
                 href="https://ittvt.edu.it"
                 target="_blank"
                 class="logo cursive word -upper"
+                style="font-size: 2rem"
               >
                 ITT LEONARDO DA VINCI
               </a>
             </div>
-            <div class="o-layout_item u-1/2">
+            <div class="o-layout_item u-1/2" style="height: 100%">
               <div id="menu" onclick="this.classList.toggle('open')">
                 <div class="hamburger">
                   <span></span>
@@ -150,6 +135,7 @@
           </div>
         </div>
       </div>
+
       <section class="c-section" data-scroll-section>
         <div class="o-container">
           <header class="c-header" id="header">
@@ -297,13 +283,12 @@
       </section>
 
       <section data-scroll-section id="mappa" style="margin-top: 100px">
-        <a
+        <div
           class="marquee-wrap marquee-start cursive capitalize"
           data-scroll-repeat
           data-scroll
           data-scroll-direction="horizontal"
           data-scroll-speed="8"
-          href="./martiri.html"
         >
           <div class="marquee-box">
             <p class="marquee-text">
@@ -349,7 +334,7 @@
               >
             </p>
           </div>
-        </a>
+        </div>
       </section>
 
       <section data-scroll-section>
@@ -358,10 +343,11 @@
             <div class="o-layout -gutter">
               <div class="o-layout_item u-3/5@from-medium">
                 <div style="position: relative" class="space-y-5">
-                  <h2 class="text-center">
+                  <h2 class="text-center item">
                     <a
                       href="martiri.html"
                       style="text-decoration: underline !important"
+                      class="word"
                       >Martiri viterbesi</a
                     >
                   </h2>
@@ -649,6 +635,7 @@
           height="630"
           src="https://www.youtube.com/embed/0fbyFBq7LUI"
           frameborder="0"
+          allow="autoplay; encrypted-media"
           allowfullscreen
           title="Interviste"
         ></iframe>

@@ -70,11 +70,6 @@ body {
   text-transform: uppercase;
 }
 
-.logo {
-  mix-blend-mode: difference;
-  font-size: 2rem;
-}
-
 .space-y-5 > * + * {
   margin-top: 5rem;
 }
@@ -96,6 +91,11 @@ body {
 .text-bold {
   font-family: Neue Montreal;
   font-weight: 700;
+}
+
+#menu {
+  height: 100%;
+  padding: 10px;
 }
 
 #menu > .hamburger > span {
@@ -271,14 +271,7 @@ body {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: transparent;
-  transform: scale(5);
-  transition: all 0.2s ease-out;
-}
-
-#mappa.is-inview > .dot {
-  background: #aaa;
-  transform: scale(1);
+  background: #848484;
 }
 
 .min-content {

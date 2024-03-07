@@ -6,15 +6,16 @@ const options = {
   getSpeed: !0,
   getDirection: !0,
   tablet: {
-    smooth: !1,
+    smooth: !0,
+    lerp: 0,
   },
   smartphone: {
-    smooth: !1,
+    smooth: !0,
+    lerp: 0,
   },
 };
 
 const scroll = new LocomotiveScroll(options);
-const menu = document.getElementById("menu");
 const cursor = new Cursor(document.querySelector(".cursor"));
 
 document.querySelectorAll("[data-title]").forEach((link) => {
@@ -28,12 +29,30 @@ document.querySelectorAll("[data-title]").forEach((link) => {
   });
 });
 
-document.querySelectorAll('li, .dot').forEach(item => item.addEventListener('click', () => window.location.replace(`./martiri.html?martire=${item.getAttribute('data-id-martire')}`)))
+document
+  .querySelectorAll("li")
+  .forEach((item) =>
+    item.addEventListener("click", () =>
+      window.location.replace(
+        `./martiri.html?martire=${item.getAttribute("data-id-martire")}`
+      )
+    )
+  );
+
+document
+  .querySelector("iframe")
+  .addEventListener("mouseover", () => (cursor.DOM.el.style.display = "none"));
+document
+  .querySelector("iframe")
+  .addEventListener(
+    "mouseleave",
+    () => (cursor.DOM.el.style.display = "block")
+  );
 
 document.querySelectorAll(".item").forEach((item) => {
-  item.addEventListener("mouseenter", shuffleAnimation2);
+  item.addEventListener("mouseenter", shuffleAnimation);
   if (item.classList.contains("item-leave")) {
-    item.addEventListener("mouseleave", shuffleAnimation2);
+    item.addEventListener("mouseleave", shuffleAnimation);
   }
 });
 
@@ -59,38 +78,6 @@ function getRandomCharacters() {
 }
 
 function shuffleAnimation(event) {
-  const target = event.currentTarget;
-  if (target.dataset.animating) {
-    return;
-  }
-  target.dataset.animating = true;
-  const words = target.querySelectorAll(".word");
-  const originalWords = Array.from(words).map((word) => word.innerText);
-  let shuffles = 0;
-  let maxShuffles = 10;
-  let intervalDuration = 500 / maxShuffles;
-  let animationInterval = setInterval(() => {
-    if (shuffles >= maxShuffles) {
-      clearInterval(animationInterval);
-      words.forEach((word, index) => {
-        word.innerText = originalWords[index];
-      });
-      delete target.dataset.animating;
-    } else {
-      words.forEach((word) => {
-        const length = word.innerText.length;
-        let shuffleText = "";
-        for (let i = 0; i < length; i++) {
-          shuffleText += getRandomCharacters();
-        }
-        word.innerText = shuffleText;
-      });
-      shuffles++;
-    }
-  }, intervalDuration);
-}
-
-function shuffleAnimation2(event) {
   const target = event.currentTarget;
   if (target.dataset.animating) {
     return;
