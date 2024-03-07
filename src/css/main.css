@@ -268,8 +268,6 @@ body {
 
 #mappa > .dot {
   position: absolute;
-  top: var(--y);
-  left: var(--x);
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -281,10 +279,6 @@ body {
 #mappa.is-inview > .dot {
   background: #aaa;
   transform: scale(1);
-}
-
-.dot::after {
-  content: attr(data-label);
 }
 
 .min-content {
