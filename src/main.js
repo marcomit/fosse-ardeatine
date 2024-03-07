@@ -1,4 +1,5 @@
 import { Cursor } from "./js/cursor";
+import * as LocomotiveScroll from "./lib";
 
 const options = {
   el: document.querySelector("#js-scroll"),
@@ -6,11 +7,11 @@ const options = {
   getSpeed: !0,
   getDirection: !0,
   tablet: {
-    smooth: !0,
+    smooth: !1,
     lerp: 0,
   },
   smartphone: {
-    smooth: !0,
+    smooth: !1,
     lerp: 0,
   },
 };
