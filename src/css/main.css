@@ -262,16 +262,19 @@ body {
   transition: all 1s ease-out;
 }
 
-#mappa {
+.mappa {
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 
-#mappa > .dot {
+.mappa > .dot {
   position: absolute;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background: #848484;
+  color: transparent;
 }
 
 .min-content {
